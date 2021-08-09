@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <title>Hear4me</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    function search() {
+    //get input value
+    const input = document.getElementById('filter').value.toUpperCase();
+    const cardContainer = document.getElementById('card-lists');
+    //console.log(cardContainer);
+
+    const cards = cardContainer.getElementsByClassName('card');
+    //console.log(cards);
+
+
+    for(let i = 0; i < cards.length; i++){
+        let title = cards[i].querySelector(".card-body p.card-title");
+        //console.log(title);
+        //Check if input is similar to paragraph in the card
+        if(title.innerText.toUpperCase().indexOf(input) > -1){
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <a href="{{url_for('ar')}}" style="background-color:#FFFFFF;">
+                <img src = "assets/img/a_2.png" alt="" class="center">
+            </a>
+        </div>
+    </div><br>
+        <!--Therapists searchbar-->
+
+    <div class="container">
+        <div class="input-filter">
+            <div class="row justify-content-center d-flex">
+                <input class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-9" type="text" name="" id="filter" class="filter" placeholder=
+                "كلمات البحث" onkeyup="search()" style="border-radius: 25px;">&nbsp;&nbsp;
+                <a class="col-md-1 col-lg-1 col-xl-1 col-sm-1 col-xs-1" style="margin:0.2em; height:51px;" href="{{url_for('volunteer')}}"><b>EN</b></a>
+                <a class="col-md-1 col-lg-1 col-xl-1 col-sm-1 col-xs-1"  href="{{url_for('volunteer_he')}}" style="margin:0.2em; height:51px;"><b>HE</b></a>
+            </div>
+        </div>
+
+        <!--All of the cards for bootstrap-->
+
+        <div class="card-lists" id="card-lists">
+            <div class="row">
+                <div class="card">
+                    <img src="assets/img/a_1.jpg" alt="image">
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: right;"><b>جيك بورن<br>
+                            تل أبيب<br></b>
+                        متخصص في حالات القلق والاكتئاب<br>
+                        jake.bourne@gmail.com: الايميل<br>الهاتف: 0982429834</p>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/a_1.jpg" alt="image">
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: right;"><b>دارين مودي<br>
+                        القدس<br></b>
+                        متخصص في حالات الانتحار والاكتئاب<br>
+                        darin.moody@gmail.com: الايميل<br>الهاتف: 0988327234</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/a_1.jpg" alt="image">
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: right;"><b>بيث بلاك<br>
+                            تل أبيب<br></b>
+                        متخصص في المساعدة في حالات العنف والتحرش والرهاب<br>
+                        beth.black@gmail.com: الايميل<br>الهاتف: 0283764464</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/a_1.jpg" alt="image">
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: right;"><b>لوكا أريلانو<br>
+                            حيفا<br></b>
+                        متخصص في المساعدة النفسية العامة واضطرابات الأكل<br>
+                        luka.arellano@gmail.com: الايميل<br>الهاتف: 0293864834</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/a_1.jpg" alt="image">
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: right;"><b>جون مكالوم<br>
+                            تل أبيب<br></b>
+                        متخصص في حالات القلق والاكتئاب والتحرش والانتحار<br>
+                        john.mccallum@gmail.com: الايميل<br>الهاتف: 0938746334</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/img/a_1.jpg" alt="image">
+                    <div class="card-body">
+                        <p class="card-title" style="text-align: right;"><b>داميان روس<br>
+                            الناصرة<br></b>
+                        متخصص في حالات الاكتئاب واضطرابات الأكل<br>
+                        Damian.russ@gmail.com: الايميل<br>الهاتف: 0529387894</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+
+
+
+</body>
+<style>
+    .card {
+    width:18rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(12, 16, 31, 0.4);
+    margin: 20px 40px;
+
+
+}
+
+
+input{
+    border: 1px solid #333;
+    font-size: 18px;
+    padding: 12px 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+h1{
+    background-color: #6BD1EF;
+    color: #0C576E;
+    height: 4rem;
+}
+
+.card{
+    display: flex;
+    flex-grow: 2;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+}
+a:link, a:visited {
+    background-color: #6BD1EF;
+    color: #0C576E ;
+    padding: 7px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    margin-left: 5px;
+    border-radius: 4px;
+  }
+
+a:hover, a:active {
+    background-color:#99EEEE ;
+  }
+
+  h5, h6{
+    text-align: right;
+}
+input[type="text"]::placeholder {
+
+                /* Firefox, Chrome, Opera */
+                text-align: right;
+            }
+input {
+    text-align: right;
+}
+
+</style>
+</html>
